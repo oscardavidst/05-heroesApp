@@ -19,4 +19,10 @@ export class HeroesService {
   getHeroePorId(id: string): Observable<Heroe> {
     return this.http.get<Heroe>(`${this.apiUrl}/heroes/${id}`);
   }
+
+  getHeroePorCaracter(caracter: string): Observable<Heroe[]> {
+    return this.http.get<Heroe[]>(
+      `${this.apiUrl}/heroes?q=${caracter}&_limit=6`
+    );
+  }
 }
