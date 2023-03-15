@@ -17,18 +17,19 @@ export class BuscarComponent {
 
   buscando() {
     this.heroesService
-      .getHeroePorCaracter(this.termino)
+      .getHeroePorCaracter(this.termino.trim())
       .subscribe((resp) => (this.heroes = resp));
   }
 
   opcionSeleccionada(event: MatAutocompleteSelectedEvent) {
-    const heroe: Heroe = event.option.value;
-    console.log(event);
+    if (event.option.value) {
+      const heroe: Heroe = event.option.value;
 
-    this.termino = heroe.superhero;
+      this.termino = heroe.superhero;
 
-    this.heroesService
-      .getHeroePorId(heroe.id!)
-      .subscribe((resp) => (this.heroeSeleccionado = resp));
+      this.heroesService
+        .getHeroePorId(heroe.id!)
+        .subscribe((resp) => (this.heroeSeleccionado = resp));
+    }
   }
 }
