@@ -25,4 +25,8 @@ export class HeroesService {
       `${this.apiUrl}/heroes?q=${caracter}&_limit=6`
     );
   }
+
+  agregarHeroe(heroe: Heroe): Observable<Heroe> {
+    return this.http.post<Heroe>(`${this.apiUrl}/heroes`, heroe);
+  }
 }
