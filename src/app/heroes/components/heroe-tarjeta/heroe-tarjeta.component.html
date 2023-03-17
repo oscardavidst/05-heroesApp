@@ -14,16 +14,18 @@
     </p>
   </mat-card-content>
   <mat-card-actions>
-    <button
-      mat-raised-button
-      color="accent"
-      class="pr-1"
-      [routerLink]="['..', heroe.id]"
-    >
-      Leer más...
-    </button>
-    <button mat-raised-button [routerLink]="['../editar', heroe.id]">
-      Editar
-    </button>
+    <div fxLayoutGap="10px">
+      <button
+        mat-raised-button
+        color="accent"
+        class="pr-1"
+        [routerLink]="['..', heroe.id]"
+      >
+        Leer más...
+      </button>
+      <button mat-raised-button [routerLink]="['../editar', heroe.id]">
+        Editar
+      </button>
+    </div>
   </mat-card-actions>
 </mat-card>

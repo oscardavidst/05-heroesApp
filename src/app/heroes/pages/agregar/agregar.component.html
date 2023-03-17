@@ -1,4 +1,4 @@
-<h1>Nuevo Héroe <small>small</small></h1>
+<h1>{{ !heroe.id ? "Nuevo" : "Editar" }} Héroe <small>small</small></h1>
 <pre>{{ heroe | json }}</pre>
 <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="40px">
   <div fxFlex="50" fxLayout="column">
@@ -39,7 +39,8 @@
     </mat-form-field>
     <br />
     <button mat-fab extended (click)="guardar()">
-      <mat-icon>save</mat-icon> Guardar
+      <mat-icon>save</mat-icon>
+      Guardar
     </button>
   </div>
   <div fxFlex="50">
