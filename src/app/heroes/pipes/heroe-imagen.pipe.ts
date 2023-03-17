@@ -3,6 +3,7 @@ import { Heroe } from '../interfaces/heroes.interface';
 
 @Pipe({
   name: 'heroeImagen',
+  // pure: false,
 })
 export class HeroeImagenPipe implements PipeTransform {
   source: string = 'assets/heroes/[id].jpg';
