@@ -7,7 +7,14 @@ import { HeroesService } from '../../services/heroes.service';
 @Component({
   selector: 'app-agregar',
   templateUrl: './agregar.component.html',
-  styles: [],
+  styles: [
+    `
+      img {
+        width: 100%;
+        border-radius: 5px;
+      }
+    `,
+  ],
 })
 export class AgregarComponent implements OnInit {
   creadores = [
@@ -37,9 +44,11 @@ export class AgregarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.params
-      .pipe(switchMap(({ id }) => this.heroesService.getHeroePorId(id)))
-      .subscribe((resp) => (this.heroe = resp));
+    if (this.router.url.includes('editar')) {
+      this.activatedRoute.params
+        .pipe(switchMap(({ id }) => this.heroesService.getHeroePorId(id)))
+        .subscribe((resp) => (this.heroe = resp));
+    }
   }
 
   guardar() {
