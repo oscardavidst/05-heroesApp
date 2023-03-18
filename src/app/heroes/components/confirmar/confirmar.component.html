@@ -1,11 +1,12 @@
-<h1>Está seguro?</h1>
-<hr />
-<p>
-  Está a punto de borrar a Heroe
-  <br />
-  ¿Desea continuar?
-</p>
-<div>
+<h1 mat-dialog-title>Está seguro?</h1>
+<div mat-dialog-content>
+  <p>
+    Está a punto de borrar a <b>{{ data.superhero }}</b>
+    <br />
+    ¿Desea continuar?
+  </p>
+</div>
+<div mat-dialog-actions>
   <button mat-button (click)="borrar()" color="warn">Si, borrar!</button>
   <button mat-button (click)="cancelar()">Cancelar</button>
 </div>
