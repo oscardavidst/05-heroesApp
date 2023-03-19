@@ -11,13 +11,9 @@ export class LoginComponent {
   constructor(private router: Router, private authService: AuthService) {}
 
   login() {
-    let id: number = 1;
-
-    this.authService.login(id).subscribe((resp) => {
-      console.log(resp);
-
+    this.authService.login().subscribe((resp) => {
       if (resp.id) {
-        this.router.navigate(['./heroes']);
+        this.router.navigate(['./heroes/listado']);
       }
     });
   }
